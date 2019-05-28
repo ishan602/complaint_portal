@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Signup</title>
+
+    <!-- Bootstrap -->
+    <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="../vendors/nprogress/nprogress.css" rel="stylesheet">
+    <!-- Animate.css -->
+    <link href="../vendors/animate.css/animate.min.css" rel="stylesheet">
+
+    <!-- Custom Theme Style -->
+    <link href="../build/css/custom.min.css" rel="stylesheet">
+  </head>
+<script>  
+		  function validateform(){  
+			  var name=document.myform.name.value;  
+			  var password=document.myform.password.value;  
+  
+			  if (name==null || name==""){  
+				  alert("Name can't be blank");  
+				  return false;  
+			  }else if(password.length<6){  
+  			alert("Password must be at least 6 characters long.");  
+  			return false;  
+  				}  
+		  	}  
+	  </script> 
+  <body>
+
+        
+            <form name="myform" action="#" onsubmit="return validateform()">
+              <h1>Create Account</h1>
+				<div>
+                <input type="text" class="form-control" placeholder="Name" name="name" />
+              </div>
+				<div>
+                <input type="tel" class="form-control" maxlength="10" placeholder="Contact Number" name="number" />
+              </div><br>
+				<div>
+                <input type="tel" maxlenght="3" class="form-control" placeholder="Room No" name="room" />
+              </div><br>
+				<div>
+                <input type="text" maxlength="1" class="form-control" placeholder="BLock" name="block" />
+              </div>
+              <div>
+                <input type="email" class="form-control" placeholder="Email" name="email" />
+              </div>
+              <div>
+                <input type="password" class="form-control" placeholder="Password" name="fpassword" />
+              </div>
+				<div>
+                <input type="password" class="form-control" placeholder="Re-enter Password" name="spassword" />
+              </div>
+              <div>
+                <button class="btn btn-default Submit">Submit</button>
+              </div>
+
+              <div class="clearfix"></div>
+
+              <div class="separator">
+                <p class="change_link">Already a member ?
+                  <a href="#signin" class="to_register"> Log in </a>
+                </p>
+
+                <div class="clearfix"></div>
+                <br />
+
+                <div>
+                  <h1>SMVDU Network Center</h1>
+                  <p>©2019 All Rights Reserved.</p>
+                </div>
+              </div>
+            </form>
+          
+       
+
+    
+	  
+  </body>
+</html>

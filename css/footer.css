@@ -1,0 +1,18 @@
+        .footer{
+             background-color:black;
+            color:white;
+            text-decoration:none;
+            padding:20px;
+            font-size:15px;
+            font-family:'Montserrat',san-serif;
+        }
+        .footer a{
+            color:white;
+            cursor: pointer;
+        }
+.footer a:hover{
+    text-decoration:none;
+}
+        a.f_icon:hover{
+            color: maroon;
+        }
