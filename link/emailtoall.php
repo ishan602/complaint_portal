@@ -126,7 +126,7 @@ $email = $_SESSION['email'];
 <div class="home_cover">
 			<div class="login">
                <center><h3><u>Email Facility to All Form</u></h3></center>
-			   <form class="form-inline" method="POST" action="">
+			   <form class="form-inline" method="POST" action="../php/emailtoall_script.php">
 				   <small><b>Note:</b> * are required</small><br>
 				   <div class="form-group">
                             <label for="name">Name of Employee*:</label>
@@ -166,7 +166,7 @@ $email = $_SESSION['email'];
                     </div> 
 				   <div class="form-group">
 				   <label for="existing">Kindly Provide the details of all esisting smvdu email id handled by you (if any)</label>
-					   <textarea class="form-control"></textarea>
+					   <textarea class="form-control" name="premail"></textarea>
 				   </div><br>
 				   
 				   <span><h4>Description of proposed new/existing email id:</h4></span>
@@ -184,7 +184,7 @@ $email = $_SESSION['email'];
 					   <label>From:</label>
 					   <input type="date" class="from-control" id="from" name="from" required>
 					   <label>upto:</label>
-					   <input type="date" class="from-control" id="from" name="from" required>
+					   <input type="date" class="from-control" id="upto" name="upto" required>
 				   </div>
 			   <button type="submit" class="btn btn-primary btn-block">Submit Requirement</button>
                     </form>

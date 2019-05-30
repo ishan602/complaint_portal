@@ -95,7 +95,7 @@ $email = $_SESSION['email'];
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li><a href="index.html">Home</a></li>
+        <li><a href="../index.php">Home</a></li>
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown">Network Centre Forms<span class="caret"></span></a>
           <ul class="dropdown-menu">
@@ -126,7 +126,8 @@ $email = $_SESSION['email'];
 <div class="home_cover">
 			<div class="login">
                <center><h3><u>Email Facility to Faculty</u></h3></center>
-			   <form class="form-inline" method="POST" action="">
+			   <form class="form-inline" method="POST" action="../php/emailfaculty_script.php">
+				   <small><b>Note:</b> * are required</small>
 				   <div class="form-group">
                             <label for="name">Full Name*:</label>
                             <input type="text" class="form-control" id="name" placeholder="e.g. Ishan Kumar" name="name" required>
@@ -168,7 +169,7 @@ $email = $_SESSION['email'];
                             <input type="date" class="form-control" id="date" placeholder="Enter Date" name="date" value="<?php echo date("Y-m-d");?>" readonly required>
                     </div> 
 				   
-				   <small><b>Note:</b> * are required</small>
+				   
 			   <button type="submit" class="btn btn-primary btn-block">Submit Requirement</button>
                     </form>
                    </div>
@@ -176,13 +177,6 @@ $email = $_SESSION['email'];
 	
             
         
-        <div class="container-fluid footer">
-            <center><b><a href="#">Network Policy</a> | <a href="office_add.html">Contact</a> | <a href="#">Project</a> | <a href="#">Adminstration Forms</a></b><p>All right reserved | &copy; Content Owned By Network Centre, SMVDU</p>
-            <a href="" class="f_icon"><i class="fa" style="font-size:27px;">&#xf082;</i></a>
-            <a href="" class="f_icon"><i class="fa fa-instagram" style="font-size:27px;"></i></a>
-            <a href="" class="f_icon"><i class="fa fa-github" style="font-size:27px;"></i></a>
-            <a href="" class="f_icon"><i class="fa fa-linkedin-square" style="font-size:27px;"></i></a>
-            </center>
-        </div>
+        
     </body>
 </html>
