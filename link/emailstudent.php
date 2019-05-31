@@ -95,7 +95,7 @@ $email = $_SESSION['email'];
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li><a href="index.php">Home</a></li>
+        <li><a href="../index.php">Home</a></li>
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown">Network Centre Forms<span class="caret"></span></a>
           <ul class="dropdown-menu">
@@ -126,14 +126,14 @@ $email = $_SESSION['email'];
 <div class="home_cover">
 			<div class="login">
                <center><h3><u>Email Facility to Student</u></h3></center>
-			   <form class="form-inline" method="POST" action="">
+			   <form class="form-inline" method="POST" action="../php/emailstudent_script.php">
 				   <div class="form-group">
                             <label for="name">Full Name*:</label>
                             <input type="text" class="form-control" id="name" placeholder="e.g. Ishan Kumar" name="name" required>
                         </div>
                 <div class="form-group">
                             <label for="name">Enrollment No*:</label>
-                            <input type="number" class="form-control" id="eid" placeholder="Employee Code" name="eid" required>
+                            <input type="text" class="form-control" id="eid" placeholder="Entry Number" name="eid" required>
                         </div>
                     <div class="form-group">
                             <label for="name">Department/School*:</label>
