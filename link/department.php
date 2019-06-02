@@ -94,8 +94,7 @@ if (isset($_SESSION['email']))
           </li>
         <li><a href="link/infrastructure.html">Infrastructure</a></li>
           <li><a href="training.html">Training</a></li>
-          <li><a href="download.html">Download</a></li>
-        
+         
         </ul>
     </div>
   </div>

@@ -139,7 +139,7 @@ $pdf->Cell(0,5,'will use SMVDU Internet for educational and research work only. 
 $pdf-> Cell(8);
 $pdf->Cell(0,5,'regulations of SMVDU internet policy and will not indulge in activities like hacking/ using proxy ',0,1,'l');
 $pdf-> Cell(8);
-$pdf->Cell(0,5,'servers/ torrent download, etc. I will not share the internet credentials with anyone and will be fully',0,1,'l');
+$pdf->Cell(0,5,'servers/ torrent download, etc. I will not share the internet credentials with anyone and will be fully',0,1,'');
 $pdf-> Cell(8);
 $pdf->Cell(0,5,'fully responsible for usage of Internet Account.',0,1,'l');
 $pdf-> Cell(8);

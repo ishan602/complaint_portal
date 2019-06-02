@@ -128,7 +128,7 @@ return false;
           </li>
         <li><a href="infrastructure.html">Infrastructure</a></li>
           <li><a href="training.html">Training</a></li>
-          <li><a href="download.html">Download</a></li>
+          
 		  <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown">Setting<span class="caret"></span></a>
             <ul class="dropdown-menu">
