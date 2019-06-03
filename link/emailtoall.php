@@ -11,7 +11,7 @@ $email = $_SESSION['email'];
     <meta name="keywords" content="SMVDu, complain, complaint, smvdu complain, network centre">
     <meta name="author" content="Network Center Smvdu">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Requirement</title>
+    <title>Requirement/Email All</title>
     <link rel="icon" href="../img/smvdulogo.png">
     <link rel="stylesheet" href="css/footer.css">
     <!-- Latest compiled and minified CSS -->
@@ -99,9 +99,9 @@ $email = $_SESSION['email'];
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown">Network Centre Forms<span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="http://network.smvdu.ac.in/networkforms/LAN%20Networkfaculty.pdf" target="_blank">Internet/ Email Facility(Faculty Forms)</a></li>
-            <li><a href="http://network.smvdu.ac.in/networkforms/LAN%20networkstudents.pdf"  target="_blank">Internet/ Email Facility(Student Forms)</a></li>
-            <li><a href="http://network.smvdu.ac.in/networkforms/Email%20to%20All%20Facility%20Approval%20Form.pdf"  target="_blank">E-Mail to all facilities approval Form</a></li>
+            <li><a href="emailfaculty.php" target="_blank">Internet/ Email Facility(Faculty Forms)</a></li>
+            <li><a href="emailstudent.php"  target="_blank">Internet/ Email Facility(Student Forms)</a></li>
+            <li><a href="emailtoall.php"  target="_blank">E-Mail to all facilities approval Form</a></li>
               <li><a href="http://network.smvdu.ac.in/networkforms/Internet%20Complaint%20Form.pdf"  target="_blank">Internet Complaint Portal</a></li>
               <li><a href="http://network.smvdu.ac.in/networkforms/Internet%20Complaint%20Form.pdf"  target="_blank">Computer Complaint Form</a></li>
             <li><a href="http://network.smvdu.ac.in/networkforms/Laptop%20Battery%20Repalcement%20form.pdf"  target="_blank">laptop Battery replacement Form</a></li>
@@ -118,7 +118,6 @@ $email = $_SESSION['email'];
         <li><a href="infrastructure.html">Infrastructure</a></li>
           <li><a href="training.html">Training</a></li>
         </ul>
-        <a href="../php/logout.php"><button class="btn btn-danger" style="float:right;margin:5px;">Logout(<?php echo $_SESSION['email'];?>)</button></a>
     </div>
   </div>
 </nav>
@@ -133,7 +132,7 @@ $email = $_SESSION['email'];
                             <input type="text" class="form-control" id="name" placeholder="e.g. Ishan Kumar" name="name" required>
                         </div>
                 <div class="form-group">
-                            <label for="name">Employee Code*:</label>
+                            <label for="Eid">Employee Code*:</label>
                             <input type="number" class="form-control" id="eid" placeholder="Employee Code" name="eid" required>
                         </div>
                     <div class="form-group">
@@ -146,15 +145,15 @@ $email = $_SESSION['email'];
                         </div>
 				   <div class="form-group">
                             <label for="name">Access Permission Purpose*:</label>
-                            <input type="textarea" class="form-control" id="purpose" placeholder="Purpose" name="purpose" required>
+                            <input type="text" class="form-control" id="purpose" placeholder="Purpose" name="purpose" required>
                         </div>
 						  <div class="form-group">
-                            <label for="name">Contact Number*:</label>
-                            <input type="tel" class="form-control" id="cno" placeholder="Enter your number" name="cno" required>
+                            <label for="cno">Contact Number*:</label>
+                            <input type="number" class="form-control" id="cno" placeholder="Enter your number" name="cno" required>
                         </div>
 				   <div class="form-group">
                             <label for="name">Ext. Number*:</label>
-                            <input type="tel" class="form-control" id="eno" placeholder="Enter Ext. number" name="eno" required>
+                            <input type="number" class="form-control" id="eno" placeholder="Enter Ext. number" name="eno" required>
                         </div>
 						  <div class="form-group">
                             <label for="name">University Email*:</label>
@@ -166,7 +165,7 @@ $email = $_SESSION['email'];
                     </div> 
 				   <div class="form-group">
 				   <label for="existing">Kindly Provide the details of all esisting smvdu email id handled by you (if any)</label>
-					   <textarea class="form-control" name="premail"></textarea>
+					   <textarea type="text" class="form-control" name="premail"></textarea>
 				   </div><br>
 				   
 				   <span><h4>Description of proposed new/existing email id:</h4></span>

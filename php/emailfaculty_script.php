@@ -13,9 +13,11 @@ if($_SERVER['REQUEST_METHOD'] === 'POST')
 	$mwifi = $_POST['mac_wifi'];
 	$email = strtoupper($_POST['email']);
 	$date = $_POST['date'];
-}
-else
-	echo "not working";
+	
+	$query = "INSERT INTO `emailfaculty`(`Name`, `E_id`, `Dept/school`, `P_add`, `Uni_add`, `C_no`, `MAC_lan`, `MAC_wifI`, `Email`, `Date _of_submit`) VALUES ('$name','$empid','$dept','$peradd','$uniadd','$no','$mlan','$mwifi','$email','$date')";
+	$result = mysqli_query($con,$query) or die("Something Went Wrong");
+	
+
 class PDF extends FPDF
 {
 // Page header
@@ -173,4 +175,5 @@ $pdf->Ln(8);
 $pdf->Cell(8);
 $pdf-> Cell(0,0,'6) 	Attach one photocopy of your identity card with this form.',0,1,'l');
 $pdf->Output();
+}
 ?>

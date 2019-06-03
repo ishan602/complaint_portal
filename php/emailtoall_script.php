@@ -1,4 +1,5 @@
 <?php
+error_reporting(E_ALL);
 require('../fpdf/fpdf.php');
 $con = mysqli_connect("localhost", "root", "", "Cp") or die('not working');
 if($_SERVER['REQUEST_METHOD'] === 'POST')
@@ -12,14 +13,18 @@ if($_SERVER['REQUEST_METHOD'] === 'POST')
 	$exno = $_POST['eno'];
 	$etitle = strtoupper($_POST['etitle']);
 	$ename = $_POST['ename'];
-	$from = $_POST['from'];
+	$start = $_POST['from'];
 	$upto = $_POST['upto'];
 	$email = strtoupper($_POST['email']);
 	$date = $_POST['date'];
 	$premail = strtoupper($_POST['premail']);
-}
-else
-	echo "not working";
+	if ($premail == NULL or $premail == '')
+	{
+		$premail = "N/A";
+	}
+	$query = "INSERT INTO `emailtoall`(`Name`, `Emp_Id`, `Dept/School`, `Designation`, `Purpose`, `C_no`, `Ext_No`, `Uni_Email`, `Date_of_submit`, `Pre_email`, `NewEmailTitle`, `NewEmailName`, `From_Date`, `To_Date`) VALUES ('$name','$empid','$dept','$design','$purpose','$no','$exno','$email','$date','$premail','$etitle','$ename','$start','$upto')";
+	$result = mysqli_query($con,$query)or die("Something Not Working");
+
 class PDF extends FPDF
 {
 // Page header
@@ -65,7 +70,7 @@ $pdf->AliasNbPages();
 $pdf-> SetLeftMargin(20);
 $pdf->AddPage();
 $pdf->SetFont('Times','B',14);
-$pdf->Cell(80);
+$pdf->Cell(70);
 $pdf->Cell(40,15,'EMAIL To All FACILITY',0,1,'C');
 $pdf->SetFont('Times','B',12);
 
@@ -133,7 +138,7 @@ $pdf->Cell(75,10,'Send to all facility period required:',0,1,'L');
 $pdf->SetFont('Times','B',12);
 $pdf->Cell(20,10,'From:',0,0,'L');
 $pdf->SetFont('Times','',12);
-$pdf->Cell(30,10,$from,0,0,'L');
+$pdf->Cell(30,10,$start,0,0,'L');
 
 $pdf->SetFont('Times','B',12);
 $pdf->Cell(20,10,'Upto:',0,0,'L');
@@ -168,115 +173,6 @@ $pdf->Cell(0,6,'Action Taken: (Issued/Not Issued) Name of Email Id Issued_______
 $pdf->Cell(0,6,'Date of Suspension of Send to all Email facility: _________________________________________',0,1,'L');
 $pdf->Cell(0,6,'Signature of Email Coordinator:',0,1,'L');
 $pdf->Cell(0,8,'Name:_________________________________________     Date: ___________________',0,1,'L');
-/*$pdf->Cell(8);
-$pdf->SetFont('Times','B',12);
-$pdf->Cell(65,10,'Employee Id',1,0,'l');
-$pdf->SetFont('Times','',12);
-$pdf->Cell(0,10,$empid,1,1,'L');
-$pdf->Cell(8);
-$pdf->SetFont('Times','B',12);
-$pdf->Cell(65,10,'Department/School',1,0,'l');
-$pdf->SetFont('Times','',12);
-$pdf->Cell(0,10,$dept,1,1,'L');
-$pdf->Cell(8);
-$pdf->SetFont('Times','B',12);
-$pdf->Cell(65,10,'Permanent Address',1,0,'l');
-$pdf->SetFont('Times','',12);
-$pdf->Cell(0,10,$peradd,1,1,'L');
-$pdf->Cell(8);
-$pdf->SetFont('Times','B',12);
-$pdf->Cell(65,10,'University Address',1,0,'l');
-$pdf->SetFont('Times','',12);
-$pdf->Cell(0,10,$uniadd,1,1,'L');
-$pdf->Cell(8);
-$pdf->SetFont('Times','B',12);
-$pdf->Cell(65,10,'MAC Id for Lan Card',1,0,'l');
-$pdf->SetFont('Times','',12);
-$pdf->Cell(0,10,$mlan,1,1,'L');
-$pdf->Cell(8);
-$pdf->SetFont('Times','B',12);
-$pdf->Cell(65,10,'MAC Id for Wifi Card',1,0,'l');
-$pdf->SetFont('Times','',12);
-$pdf->Cell(0,10,$mwifi,1,1,'L');
-$pdf->Cell(8);
-$pdf->SetFont('Times','B',12);
-$pdf->Cell(65,10,'Mobile Number',1,0,'l');
-$pdf->SetFont('Times','',12);
-$pdf->Cell(0,10,$no,1,1,'L');
-$pdf->Cell(8);
-$pdf->SetFont('Times','B',12);
-$pdf->Cell(65,10,'Email Id',1,0,'l');
-$pdf->SetFont('Times','',12);
-$pdf->Cell(0,10,$email,1,1,'L');
-$pdf->Cell(8);
-$pdf->SetFont('Times','B',12);
-$pdf->Cell(65,10,'Date',1,0,'l');
-$pdf->SetFont('Times','',12);
-$pdf->Cell(0,10,$date,1,1,'L');
-$pdf->Cell(8);
-$pdf->SetFont('Times','B',12);
-$pdf->Cell(65,10,'Signature',1,0,'l');
-$pdf->SetFont('Times','',12);
-$pdf->Cell(0,10,'',1,1,'L');
-$pdf->Cell(8);
-$pdf->SetFont('Times','B',12);
-$pdf->Cell(65,10,'Recommended & Forwarded by',1,0,'l');
-$pdf->SetFont('Times','',12);
-$pdf->Cell(0,10,'',1,1,'L');
-$pdf->Cell(8);
-$pdf->Ln(8);
-$pdf->Cell(0,0,'',1,1);
-$pdf->Cell(80);
-$pdf ->setFont('Times','B','12');
-$pdf->Cell(40,15,'For Network Centre Use',0,1,'C');
-$pdf->Cell(8);
-$pdf->SetFont('Times','B',10);
-$pdf->Cell(65,10,'SMVDU/NC/2019/',0,0,'l');
-$pdf->Cell(110,10,'Date: - ___/___/____',0,1,'R');
-$pdf->Cell(8);
-$pdf->SetFont('Times','B',11);
-$pdf->Cell(65,10,'Username: - ____________________________',0,0,'l');
-$pdf->Cell(110,10,'Password:- ____________________________',0,1,'R');
-$pdf->Ln(9);
-$pdf->Cell(0,0,'------------------------------------------------------------------------------------------------------------------',0,1,'C');
-$pdf-> Ln(18);
-$pdf->SetFont('Times','B',11);
-$pdf-> Cell(8);
-$pdf->Cell(65,10,'Username: - ____________________________',0,0,'l');
-$pdf->Cell(110,10,'Password:- ____________________________',0,1,'R');
-
-
-
-
-
-
-
-$pdf ->setFont('Times','B','12');
-$pdf->Cell(80);
-$pdf->Cell(40,15,'INSTRUCTIONS',0,1,'C');
-$pdf ->setFont('Times','','12');
-$pdf-> cell(8);
-$pdf-> Cell(0,0,'1) 	Do not share username & password with anyone.',0,1,'l');
-$pdf->Ln(8);
-$pdf->Cell(8);
-$pdf-> Cell(0,0,'2) 	Network centre will be providing internet connection only as per recommendations from Deans /',0,1,'l');
-$pdf->Ln(8);$pdf->Cell(8);
-$pdf-> Cell(0,0,'Directors / Head of Sections. ',0,1,'l');
-$pdf->Ln(8);
-$pdf->Cell(8);
-$pdf-> Cell(0,0,'3) 	The user for whom the account was created is responsible for the security of the account and all ',0,1,'l');
-$pdf->Ln(8);$pdf->Cell(8);
-$pdf-> Cell(0,0,'actions associated with its use. ',0,1,'l');
-$pdf->Ln(8);
-$pdf->Cell(8);
-$pdf-> Cell(0,0,'4) 	Stolen passwords: Often the account owner is the first person to detect unauthorized use of their ',0,1,'l');
-$pdf->Ln(8);$pdf->Cell(8);
-$pdf-> Cell(0,0,'account. If this occurs, please notify to the Network Centre. ',0,1,'l');
-$pdf->Ln(8);
-$pdf->Cell(8);
-$pdf-> Cell(0,0,'5) 	Type ipconfig /all in command prompt to see the MAC ID of Network Card.',0,1,'l');
-$pdf->Ln(8);
-$pdf->Cell(8);
-$pdf-> Cell(0,0,'6) 	Attach one photocopy of your identity card with this form.',0,1,'l');*/
 $pdf->Output();
+}
 ?>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 02, 2019 at 08:00 AM
+-- Generation Time: Jun 03, 2019 at 08:04 AM
 -- Server version: 5.7.20-log
 -- PHP Version: 7.1.1
 
@@ -92,6 +92,113 @@ INSERT INTO `complaint` (`S_no`, `comp_no`, `email`, `Category`, `Name`, `C_numb
 (15, 15, '15bcs010@smvdu.ac.in', 'Internet', 'ishan', '9906168871', 'Nilgiri', 216, 'C', 'net is not working', 'submitted', '2019-04-05 09:31:30', '', '', 0, '0000-00-00', '00:00:00'),
 (16, 1553051324, '15bcs010@smvdu.ac.in', 'Network', 'ishan', '9906168871', 'Nilgiri', 316, 'C', 'hello', 'Forward_to_admin', '2019-05-09 14:20:22', NULL, NULL, NULL, '0000-00-00', '00:00:00'),
 (17, 2088899774, '15bcs010@smvdu.ac.in', 'Other', 'ishan', '9906168871', 'Nilgiri', 212, 'C', 'Student CHeck', 'submitted', '2019-05-10 07:32:41', NULL, NULL, NULL, '0000-00-00', '00:00:00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `emailfaculty`
+--
+
+CREATE TABLE `emailfaculty` (
+  `S_no` int(11) NOT NULL,
+  `Name` text NOT NULL,
+  `E_id` int(11) NOT NULL,
+  `Dept/school` text NOT NULL,
+  `P_add` text NOT NULL,
+  `Uni_add` text NOT NULL,
+  `C_no` decimal(11,0) NOT NULL,
+  `MAC_lan` text,
+  `MAC_wifI` text,
+  `Email` text NOT NULL,
+  `Date _of_submit` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `emailfaculty`
+--
+
+INSERT INTO `emailfaculty` (`S_no`, `Name`, `E_id`, `Dept/school`, `P_add`, `Uni_add`, `C_no`, `MAC_lan`, `MAC_wifI`, `Email`, `Date _of_submit`) VALUES
+(1, 'ishan', 12854, 'CSE', 'XYZ', 'ABS', '9906168871', NULL, NULL, 'smvdu@smvdu.ac.in', '2019-06-02'),
+(2, 'ishan', 12854, 'CSE', 'XYZ', 'ABS', '9906168871', '', '', 'smvdu@smvdu.ac.in', '2019-06-02'),
+(3, 'ISHAN KUMAR', 125465, 'Computer Science and Engineering', 'ward no 12, Hgr, Jammu', 'Room no c-216, vindyanchal Hostel', '9906168871', '', '', 'SMVDU@SMVDU.AC.IN', '2019-06-02'),
+(4, 'ISHAN KUMAR', 125465, 'Computer Science and Engineering', 'ward no 12, Hgr, Jammu', 'Room no c-216, vindyanchal Hostel', '9906168871', '', '', 'SMVDU@SMVDU.AC.IN', '2019-06-02'),
+(5, 'ISHAN KUMAR', 125465, 'Computer Science and Engineering', 'ward no 12, Hgr, Jammu', 'Room no c-216, vindyanchal Hostel', '9906168871', '', '', 'SMVDU@SMVDU.AC.IN', '2019-06-02');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `emailstudent`
+--
+
+CREATE TABLE `emailstudent` (
+  `S_no` int(11) NOT NULL,
+  `Req_no` int(11) NOT NULL,
+  `Name` text NOT NULL,
+  `Entry_number` text NOT NULL,
+  `Dept/School` text NOT NULL,
+  `Semester` int(11) NOT NULL,
+  `P_add` text NOT NULL,
+  `U_add` text NOT NULL,
+  `C_no` decimal(11,0) NOT NULL,
+  `MAC_lan` text,
+  `MAC_wifi` text,
+  `Email` text NOT NULL,
+  `Date_of_submit` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `emailstudent`
+--
+
+INSERT INTO `emailstudent` (`S_no`, `Req_no`, `Name`, `Entry_number`, `Dept/School`, `Semester`, `P_add`, `U_add`, `C_no`, `MAC_lan`, `MAC_wifi`, `Email`, `Date_of_submit`) VALUES
+(2, 12545, 'Ishan', '15bcs010', 'CSE', 8, 'xyz', 'ABC', '9906168871', '', '', 'smvdu@smvdu.ac.in', '2019-06-02'),
+(3, 17182, 'ISHAN KUMAR', '15BCS010', 'CSE', 8, 'ward no 12, Hgr, Jammu', 'Room no c-216, vindyanchal Hostel', '9906168871', '', '', 'SMVDU@SMVDU.AC.IN', '2019-06-02'),
+(4, 23936, 'ISHAN KUMAR', '15BCS010', 'CSE', 8, 'ward no 12, Hgr, Jammu', 'Room no c-216, vindyanchal Hostel', '9906168871', '', '', 'SMVDU@SMVDU.AC.IN', '2019-06-02'),
+(5, 88454, 'ISHAN KUMAR', '15BCS010', 'CSE', 8, 'ward no 12, Hgr, Jammu', 'Room no c-216, vindyanchal Hostel', '9906168871', '', '', 'SMVDU@SMVDU.AC.IN', '2019-06-02');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `emailtoall`
+--
+
+CREATE TABLE `emailtoall` (
+  `S_no` int(11) NOT NULL,
+  `Name` text NOT NULL,
+  `Emp_Id` text NOT NULL,
+  `Dept/School` text NOT NULL,
+  `Designation` text NOT NULL,
+  `Purpose` text NOT NULL,
+  `C_no` decimal(11,0) NOT NULL,
+  `Ext_No` int(11) NOT NULL,
+  `Uni_Email` text NOT NULL,
+  `Date_of_submit` date NOT NULL,
+  `Pre_email` text,
+  `NewEmailTitle` text NOT NULL,
+  `NewEmailName` text NOT NULL,
+  `From_Date` date NOT NULL,
+  `To_Date` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `emailtoall`
+--
+
+INSERT INTO `emailtoall` (`S_no`, `Name`, `Emp_Id`, `Dept/School`, `Designation`, `Purpose`, `C_no`, `Ext_No`, `Uni_Email`, `Date_of_submit`, `Pre_email`, `NewEmailTitle`, `NewEmailName`, `From_Date`, `To_Date`) VALUES
+(1, 'Ishan', '1255', 'CSE', 'Asst. Prof', 'XYZ', '9906168871', 1255, 'smvdu@smvdu.ac.in', '2019-06-02', 'xyz', 'xyz', 'xyz', '2019-06-02', '2019-06-30'),
+(2, 'ishan', '20155', 'CSE', 'Proff.', 'XYZ', '9906168871', 12554, 'smvdu@smvdu.ac.in', '2019-06-02', NULL, 'YZ', 'XYZ', '2019-06-02', '2019-06-20'),
+(3, 'Ishan', '1256', 'CSE', 'XYZ', 'XYZ', '9906168871', 1254, 'XYZ', '2019-06-03', '', 'XYZ', 'XYZ', '2019-06-03', '2019-06-04'),
+(4, 'Ishan', '1256', 'CSE', 'XYZ', 'XYZ', '9906168871', 1254, 'XYZ', '2019-06-03', '', 'XYZ', 'XYZ', '2019-06-03', '2019-06-04'),
+(5, 'Ishan', '1256', 'CSE', 'XYZ', 'XYZ', '9906168871', 1254, 'XYZ', '2019-06-03', '', 'XYZ', 'XYZ', '2019-06-03', '2019-06-04'),
+(6, 'Ishan', '1256', 'CSE', 'XYZ', 'XYZ', '9906168871', 1254, 'XYZ', '2019-06-03', '', 'XYZ', 'XYZ', '2019-06-03', '2019-06-04'),
+(7, 'ISHAN', '1256', 'CSE', 'XYZ', 'XYZ', '9906168871', 1254, 'XYZ', '2019-06-03', '', 'XYZ', 'XYZ', '2019-06-03', '2019-06-04'),
+(8, 'ISHAN', '1256', 'Computer Science and Engineering', 'Asst. Professor', 'XYZ', '9906168871', 1254, 'XYZ', '2019-06-03', '', 'XYZ', 'XYZ', '2019-06-03', '2019-06-04'),
+(9, 'ISHAN', '1256', 'Computer Science and Engineering', 'Asst. Professor', 'Need to give information to students', '9906168871', 1254, 'SMVDU@SMVDU.AC.IN', '2019-06-03', '', 'XYZ', 'XYZ', '2019-06-03', '2019-06-04'),
+(10, 'ISHAN', '1256', 'Computer Science and Engineering', 'Asst. Professor', 'Need to give information to students', '9906168871', 1254, 'SMVDU@SMVDU.AC.IN', '2019-06-03', 'N/A', 'VHFUVHFOBU@NFJB.COM', 'XYZ', '2019-06-03', '2019-06-12'),
+(11, 'ISHAN', '1256', 'Computer Science and Engineering', 'Asst. Professor', 'Need to give information to students', '9906168871', 1254, 'SMVDU@SMVDU.AC.IN', '2019-06-03', 'N/A', 'VHFUVHFOBU@NFJB.COM', 'vbfvjfbufi', '2019-06-03', '2019-06-12'),
+(12, 'ISHAN', '1256', 'Computer Science and Engineering', 'Asst. Professor', 'Need to give information to students', '9906168871', 1254, 'SMVDU@SMVDU.AC.IN', '2019-06-03', 'N/A', 'VHFUVHFOBU@NFJB.COM', 'vbfvjfbufi', '2019-06-03', '2019-06-12'),
+(13, 'ISHAN', '1256', 'Computer Science and Engineering', 'Asst. Professor', 'Need to give information to students', '9906168871', 1254, 'SMVDU@SMVDU.AC.IN', '2019-06-03', 'N/A', 'VHFUVHFOBU@NFJB.COM', 'vbfvjfbufi', '2019-06-03', '2019-06-12'),
+(14, 'ISHAN', '1256', 'Computer Science and Engineering', 'Asst. Professor', 'Need to give information to students', '9906168871', 1254, 'SMVDU@SMVDU.AC.IN', '2019-06-03', 'N/A', 'VHFUVHFOBU@NFJB.COM', 'vbfvjfbufi', '2019-06-03', '2019-06-12');
 
 -- --------------------------------------------------------
 
@@ -262,6 +369,24 @@ ALTER TABLE `complaint`
   ADD PRIMARY KEY (`S_no`);
 
 --
+-- Indexes for table `emailfaculty`
+--
+ALTER TABLE `emailfaculty`
+  ADD PRIMARY KEY (`S_no`);
+
+--
+-- Indexes for table `emailstudent`
+--
+ALTER TABLE `emailstudent`
+  ADD PRIMARY KEY (`S_no`);
+
+--
+-- Indexes for table `emailtoall`
+--
+ALTER TABLE `emailtoall`
+  ADD PRIMARY KEY (`S_no`);
+
+--
 -- Indexes for table `inventory`
 --
 ALTER TABLE `inventory`
@@ -293,6 +418,21 @@ ALTER TABLE `admin_comp`
 --
 ALTER TABLE `complaint`
   MODIFY `S_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+--
+-- AUTO_INCREMENT for table `emailfaculty`
+--
+ALTER TABLE `emailfaculty`
+  MODIFY `S_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+--
+-- AUTO_INCREMENT for table `emailstudent`
+--
+ALTER TABLE `emailstudent`
+  MODIFY `S_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+--
+-- AUTO_INCREMENT for table `emailtoall`
+--
+ALTER TABLE `emailtoall`
+  MODIFY `S_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT for table `inventory`
 --

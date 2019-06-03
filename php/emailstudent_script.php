@@ -6,6 +6,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST')
 	$name = strtoupper($_POST['name']);
 	$empid = strtoupper($_POST['eid']);
 	$dept = $_POST['dept'];
+	$sem = $_POST['sem'];
 	$peradd = $_POST['padd'];
 	$uniadd = $_POST['uadd'];
 	$no = $_POST['cno'];
@@ -14,9 +15,10 @@ if($_SERVER['REQUEST_METHOD'] === 'POST')
 	$email = strtoupper($_POST['email']);
 	$date = $_POST['date'];
 	$rno = mt_rand(10000,99999);
-}
-else
-	echo "not working";
+
+	$query = "INSERT INTO `emailstudent`(`Req_no`, `Name`, `Entry_number`, `Dept/School`, `Semester`, `P_add`, `U_add`, `C_no`, `MAC_lan`, `MAC_wifi`, `Email`, `Date_of_submit`) VALUES ('$rno','$name','$empid','$dept','$sem','$peradd','$uniadd','$no','$mlan','$mwifi','$email','$date');";
+	$result = mysqli_query($con,$query) or die("Something Went Wrong");
+	
 class PDF extends FPDF
 {
 // Page header
@@ -64,11 +66,11 @@ $pdf->setLeftMargin(15);
 $pdf-> setRightMargin(15);
 $pdf->SetFont('Times','B',14);
 $pdf->Cell(80);
-$pdf->Cell(40,15,'Application Form for Internet Connectivity through LAN/ Wi fi for Students ',0,1,'C');
+$pdf->Cell(40,10,'Application Form for Internet Connectivity through LAN/ Wi fi for Students ',0,1,'C');
 $pdf->SetFont('Times','B',12);
 $pdf->Cell(8);
-$pdf->Cell(110,15,'Requirement Number:- '.$rno.' ',0,0,'L');
-$pdf->Cell(60,15,'Date:- '.date('d/m/y').' ',0,1,'R');
+$pdf->Cell(110,10,'Requirement Number:- '.$rno.' ',0,0,'L');
+$pdf->Cell(60,10,'Date:- '.date('d/m/y').' ',0,1,'R');
 $pdf->Cell(8);
 $pdf->Cell(65,10,'Name ',1,0,'L');
 $pdf->SetFont('Times','',12);
@@ -83,6 +85,11 @@ $pdf->SetFont('Times','B',12);
 $pdf->Cell(65,10,'Department/School',1,0,'l');
 $pdf->SetFont('Times','',12);
 $pdf->Cell(0,10,$dept,1,1,'L');
+$pdf->Cell(8);
+$pdf->SetFont('Times','B',12);
+$pdf->Cell(65,10,'Semester',1,0,'l');
+$pdf->SetFont('Times','',12);
+$pdf->Cell(0,10,$sem,1,1,'L');
 $pdf->Cell(8);
 $pdf->SetFont('Times','B',12);
 $pdf->Cell(65,10,'Permanent Address',1,0,'l');
@@ -186,4 +193,5 @@ $pdf->Ln(8);
 $pdf->Cell(8);
 $pdf-> Cell(0,0,'6) 	Attach one photocopy of your identity card with this form.',0,1,'l');
 $pdf->Output();
+}
 ?>
