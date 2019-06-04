@@ -2,19 +2,16 @@
 session_start();
 $_SESSION['email'];
 error_reporting(0);
-$con = mysqli_connect("localhost", "root", "", "Cp") or die('not working');
-isset($_GET['id']);
-$cno = $_GET['id'];
-$select = "Select * from complaint where comp_no= '$cno'";
-$select_query = mysqli_query($con,$select) or die("Not working");
-$rows = mysqli_fetch_array($select_query);
-
-$select_query = "Select Name from inventory";
-$select_query_result = mysqli_query($con,$select_query);
-//$select_query = "Select Name from inventory";
-//$select_query_result = mysqli_query($con,$select_query);
 if (isset($_SESSION['email']))
-{}
+{
+	require '../php/display.php';
+	isset($_GET['id']);
+	$cno = $_GET['id'];
+	$select = "Select * from complaint where comp_no= '$cno'";
+	$select_query = mysqli_query($con,$select) or die("Not working");
+	$rows = mysqli_fetch_array($select_query);
+}
+
 else
     header("location:../index.php");
 
@@ -183,6 +180,7 @@ else
 						 <div class="form-group">
                         <label for="sel1">Device Category</label>
                         <select class="form-control" id="sel1" name="dcat" required>
+								<option value="" disabled selected>Select</option>
                                 <option value="Printer">Printer</option>
                                 <option value="Hardware">Hardware</option>
                                 <option value="Computer">Computer</option>
@@ -190,18 +188,12 @@ else
                         </select>
                         </div>
                   		<div class="form-group">
-                        <label for="sel2">Item Used</label>
-                        <select class="form-control" id="sel2" name="item_used" required>
-                                <?php 
-							while($rinv = mysqli_fetch_array($select_query_result))
-								//echo rows;
-							{?>
-								<option value="<?php echo $rinv['Name']; ?>"><?php echo $rinv['Name'];?></option>
-							<?php }
+							<label for="sel2">Item Used</label>
+                        <select class="form-control" id="sel2" name="item_used" required></select>
 							
-							?>
-                        </select>
                         </div>
+				   
+				   
                     <div class="form-group">
                             <label for="issued">Quantity</label>
                             <input type="number" class="form-control" id="issued" min="1" max="100" placeholder="units issued" name="quantity" required>
@@ -232,25 +224,30 @@ else
             <a href="" class="f_icon"><i class="fa fa-linkedin-square" style="font-size:27px;"></i></a>
             </center>
         </div>
-        
-        <!------------------------------ SCRIPT---------------------------------------------------------->
-       <!-- <script>  
- $(document).ready(function(){  
-      $('#submit').click(function(){  
-           var name = $('#name').val();  
-           var c_no = $('#c_no').val();  
-           if(name == '' || message == '')  
-           {  
-                $('#error_message').html("All Fields are required");  
-           }  
-           else  
-           {  
-                $('#error_message').html('');  
-               $('#success_message').html("Complaint Saved");
-                
-           }  
-      });  
- }); 
- </script>  -->
+		
+		
+		<script type="text/javascript">
+		$(document).ready(function(){
+			$("#sel1").change(function(){
+				var xmlhttp=new XMLHttpRequest();
+				var cat=$('#sel1').val();
+				xmlhttp.open('GET','../php/showList.php?cat='+cat,false);
+				xmlhttp.send(null);
+				document.getElementById("sel2").innerHTML=xmlhttp.responseText;
+			})
+		})
+			
+		$(document).ready(function(){
+			$("#sel2").change(function(){
+				var xmlhttp=new XMLHttpRequest();
+				var item =$("#sel2").val();
+				alert(item);
+				xmlhttp.open('GET','../php/showList.php?item='+item,false);
+				xmlhttp.send(null);
+				alert(xmlhttp.responseText);
+				document.getElementById("maxquant").innerHTML = xmlhttp.responseText;
+			})
+		})
+		</script>
     </body>
 </html>

@@ -23,6 +23,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST')
 		$premail = "N/A";
 	}
 	$query = "INSERT INTO `emailtoall`(`Name`, `Emp_Id`, `Dept/School`, `Designation`, `Purpose`, `C_no`, `Ext_No`, `Uni_Email`, `Date_of_submit`, `Pre_email`, `NewEmailTitle`, `NewEmailName`, `From_Date`, `To_Date`) VALUES ('$name','$empid','$dept','$design','$purpose','$no','$exno','$email','$date','$premail','$etitle','$ename','$start','$upto')";
+	$select = "SELECT * from emailtoall where ";
 	$result = mysqli_query($con,$query)or die("Something Not Working");
 
 class PDF extends FPDF
